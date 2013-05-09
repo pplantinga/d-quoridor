@@ -97,7 +97,7 @@ class Board
 		{
 			if ( i % 2 == 0 )
 			{
-				string number = format( i / 2 + 1 );
+				string number = format( "%s", i / 2 + 1 );
 				// append a space to shorter numbers so formatting looks nice
 				if ( number.length == 1 )
 					number ~= " ";
@@ -418,7 +418,7 @@ class Board
 		move_string ~= to!char( move[0] / 2 + 97 );
 		
 		// number
-		move_string ~= format( move[1] / 2 + 1 );
+		move_string ~= format( "%s", move[1] / 2 + 1 );
 
 		// orientation
 		if ( move[2] == 1 )

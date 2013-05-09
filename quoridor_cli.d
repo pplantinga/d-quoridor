@@ -54,7 +54,7 @@ void main( string[] args )
 				catch ( Exception e )
 				{
 					writeln( "Illegal move" );
-					writeln( e );
+					//writeln( e );
 					continue;
 				}
 			}
