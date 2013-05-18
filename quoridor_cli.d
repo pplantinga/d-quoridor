@@ -54,7 +54,6 @@ void main( string[] args )
 				catch ( Exception e )
 				{
 					writeln( "Illegal move" );
-					//writeln( e );
 					continue;
 				}
 			}
@@ -64,6 +63,7 @@ void main( string[] args )
 			move = board.ai_move( times[ turn ] );
 			if ( move.length > 2 && move[2] == 'w' )
 			{
+				board.print_board;
 				writeln( "Player ", turn + 1, " wins!" );
 				break;
 			}
@@ -72,7 +72,4 @@ void main( string[] args )
 		board.print_board;
 		turn = ( turn + 1 ) % 2;
 	}
-
-	board.print_board;
 }
-
