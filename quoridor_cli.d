@@ -47,6 +47,7 @@ void main( string[] args )
 					winner = board.move( move );
 					if ( winner )
 					{
+						board.print_board;
 						writeln( "Player ", winner, " wins!" );
 						break;
 					}
