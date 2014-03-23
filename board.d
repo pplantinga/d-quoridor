@@ -50,10 +50,12 @@ class Board
 		my_x = b.my_x.dup;
 		my_y = b.my_y.dup;
 		my_walls = b.my_walls.dup;
-		my_board = b.my_board.dup;
+		foreach ( i, row; b.my_board )
+			my_board[i] = row.dup;
 		my_turn = b.my_turn;
 		path_lengths = b.path_lengths.dup;
-		walls_in_path = b.walls_in_path.dup;
+		walls_in_path[0] = b.walls_in_path[0].dup;
+		walls_in_path[1] = b.walls_in_path[1].dup;
 		my_openings = b.my_openings;
 	}
 
@@ -338,7 +340,7 @@ class Board
 				else
 					break;
 			}
-
+			writeln( i );
 			sw.stop;
 
 			if ( move[2] )
@@ -430,8 +432,8 @@ class Board
 	}
 
 	private:
-	immutable int               BOARD_SIZE = 17;
-	immutable int               WALL_COUNT = ( BOARD_SIZE + 1 ) * ( BOARD_SIZE + 1 ) / 32;
+	static immutable int        BOARD_SIZE = 17;
+	static immutable int        WALL_COUNT = ( BOARD_SIZE + 1 ) * ( BOARD_SIZE + 1 ) / 32;
 	int[BOARD_SIZE][BOARD_SIZE] my_board;
 	int                         my_turn;
 	int[2]                      my_x, my_y, my_walls, path_lengths, my_openings;
@@ -443,7 +445,7 @@ class Board
 
 	/**
 	 * Checks for move legality, and if legal, moves the player
-	 *
+	 *1
 	 * Params:
 	 *   x = the desired horizontal location
 	 *   y = the desired vertical location
@@ -686,7 +688,7 @@ class Board
 			move_array[2] = m.captures.back == "h";
 			
 			// Walls are in a different place than moves, so add 1 to each value
-			move_array[] = move_array[] + 1;
+			move_array[] += 1;
 		}
 
 		return move_array;
